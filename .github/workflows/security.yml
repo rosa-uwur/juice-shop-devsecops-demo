@@ -32,18 +32,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Escanear dependencias del repo
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@master
         with:
           scan-type: fs
           severity: CRITICAL,HIGH
           exit-code: "1"
       - name: Escanear imagen Docker
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@master
         with:
           scan-type: image
           image-ref: bkimminich/juice-shop
           severity: CRITICAL
-          exit-code: "0" # solo informativo en la demo
+          exit-code: "0"
 
   dast:
     name: DAST (OWASP ZAP)
