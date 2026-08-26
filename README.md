@@ -28,7 +28,7 @@ SAST analiza el código sin ejecutarlo. DAST ataca la aplicación ya levantada, 
 
 ## Resultados
 
-Salida del pipeline sobre este repo. Nada de esto se buscó a mano.
+Salida del pipeline sobre este repo. No se realizó ninguna auditoría manual al código.
 
 | Herramienta | Resultado | Hallazgos destacados |
 |-------------|:---------:|----------------------|
@@ -37,7 +37,6 @@ Salida del pipeline sobre este repo. Nada de esto se buscó a mano.
 | Trivy | 3 llaves + 8 CVEs | Llaves privadas RSA en `lib/insecurity.ts` y terraform; CVEs críticos en `lodash`, `crypto-js`, `jsonwebtoken`, `marsdb` |
 | OWASP ZAP | 8 warnings | CSP ausente, cross-domain misconfiguration, cabeceras faltantes |
 
-Un detalle que vale la pena señalar: Gitleaks no detectó las llaves privadas RSA porque solo mira el diff del commit, pero Trivy sí, porque escanea todo el filesystem. Ese es el argumento de tener las cuatro capas en lugar de una sola.
 
 ## Cómo funciona
 
